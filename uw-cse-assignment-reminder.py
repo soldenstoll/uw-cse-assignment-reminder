@@ -29,7 +29,7 @@ import json                      # For parsing json
 # 3. Next, update the other -- Configs -- below. The other configs just set
 # things like reminder times and course end dates.
 
-# 4. Before continuing, see the NOTE in the code below (on line TODO).
+# 4. Before continuing, see the NOTE in the code below (on line 114).
 # Some course websites might have different HTML tags surrounding assignments.
 # Once this is handled, set DEBUG=false to fully run the script.
 
