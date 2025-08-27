@@ -33,7 +33,7 @@ First, set ```DEBUG = True``` on line 44 of ```uw-cse-assignment-reminder.py```.
 This will ensure that no reminders will be created when running code at the start. Sometimes what is shown by
 BeautifulSoup varies slightly from what is seen in the developer tools, so we first need to confirm the
 tags we found are correct. If they differ, go with what BeautifulSoup shows. To do this, uncomment 
-```print(soup.prettify())``` from line 128, and run ```uw-cse-assignment-reminder.py```. You may get
+```print(soup.prettify())``` from line 123, and run ```uw-cse-assignment-reminder.py```. You may get
 errors from the lines below, but all we need is the prettified output. In our case, the output surrounding the table
 also has ```<table class="listtable">```, and shows each table element as
 ```
@@ -54,7 +54,7 @@ also has ```<table class="listtable">```, and shows each table element as
  </td>
 </tr>
 ```
-so we can now update the code to reflect this. On line 129, we set
+so we can now update the code to reflect this. On line 124, we set
 ```rows = soup.find('table', {'class': 'listtable'}).find_all('tr')```
 This will find the first occurence of a table tag with the class 'listtable', and then find all
 'tr' tags within it. The first element of this will be the table header, which we will filter out
@@ -64,7 +64,7 @@ later, but examining the second row via ```print(rows[1])``` shows
 <span class="list_description">ex0 due</span><br/><span class="list_materials"><a href="../hw/ex00.html">exercise</a></span>
 </td></td></tr>
 ```
-To only get table elements (and not headers), we set ```cell = row.find('td')``` on line 136. This will grab the
+To only get table elements (and not headers), we set ```cell = row.find('td')``` on line 131. This will grab the
 first occurence of a ```<td>``` tag, which in our case will be
 ```
 <td>June 25<td>
@@ -77,8 +77,8 @@ Printing ```cell.contents``` yields a list of sub-elements
 <span class="list_description">ex0 due</span><br/><span class="list_materials"><a href="../hw/ex00.html">exercise</a></span>
 </td>]
 ```
-To get the date, we can call ```cell.contents[0]```, which is done in line 143. Then, to extract the assignment name text,
-we call ```cell.contents[1].find('span').text```.
+To get the date, we can call ```cell.contents[0]```, which is done in line 138. Then, to extract the assignment name text,
+we call ```cell.contents[1].find('span').text``` on line 146.
 
 And there you have it, we have succesfully extracted the assignment details from the HTML! Following a similar process
 should work for any other course.

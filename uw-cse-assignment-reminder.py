@@ -115,13 +115,8 @@ except requests.exceptions.RequestException as err:
 # webpage being used. Lines marked with # Here should be checked before using
 # the script to prevent unwated behavior. To update them, run the lines of code
 # up to the first # HERE with DEBUG set to True and make sure it is locating 
-# the correct HTML elements. If it is not, see (TODO)
+# the correct HTML elements. If it is not, see `2. Troubleshooting HTML Parsing`
 # in the README for instructions to fix this.
-# try running 
-# print(soup.prettify())
-# and locate the html tags surrounding the elements containing
-# The below format works with the
-# cse 333 25su page listed in -- Configs --.
 
 # Initialize a beautiful soup parser and locate assignment table
 soup = BeautifulSoup(r.text, 'html.parser')
